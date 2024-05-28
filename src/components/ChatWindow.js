@@ -72,8 +72,6 @@ function ChatWindow(props) {
       />,
       ...tempMessageList,
     ];
-    console.log("Temp message list", tempMessageList);
-    console.log("Updating temp message list", updatedTempMessageList);
     setTempMessageList(updatedTempMessageList);
 
     postMessage(threadId, message).then(setRun);

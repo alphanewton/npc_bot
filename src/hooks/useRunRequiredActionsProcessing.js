@@ -18,7 +18,7 @@ export const useRunRequiredActionsProcessing = (
             const query = JSON.parse(tool_call.function.arguments).query;
             try {
               const answerResponse = await fetchRelatedQnA(query);
-              const answer = answerResponse.answer;
+              const answer = answerResponse;
 
               response.push({
                 tool_call_id: tool_call.id,
