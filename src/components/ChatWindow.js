@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import { styles } from "./styles";
 import Header from "./Header";
 import ChatInput from "./ChatInput";
@@ -21,6 +21,7 @@ function ChatWindow(props) {
   useRunRequiredActionsProcessing(run, setRun, setActionMessages);
   const { status, processing } = useRunStatus(run);
   const [tempMessageList, setTempMessageList] = useState([]);
+  const messageContainerRef = useRef(null);
 
   //Update tempMessageList when messages change by one or more
   useEffect(() => {
@@ -48,6 +49,16 @@ function ChatWindow(props) {
       );
     }
   }, [messages, status, tempMessageList.length]);
+
+  // Scroll to the bottom when messages or processing state changes
+  useEffect(() => {
+    if (messageContainerRef.current) {
+      messageContainerRef.current.scrollTo({
+        top: messageContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [messages, processing]);
 
   const handleSend = (message) => {
     const tempId = `temp-${Date.now()}`;
@@ -100,7 +111,10 @@ function ChatWindow(props) {
           onNewChat={clearThread}
           onClick={() => props.onClick && props.onClick()}
         />
-        <div className="flex flex-col-reverse grow overflow-scroll">
+        <div
+          className="flex flex-col-reverse grow overflow-scroll"
+          ref={messageContainerRef}
+        >
           {status !== undefined && <ChatStatusIndicator status={status} />}
           {processing && <Loading />}
           {messageList}
