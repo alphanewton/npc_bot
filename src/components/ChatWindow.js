@@ -27,6 +27,8 @@ function ChatWindow(props) {
   useEffect(() => {
     if (
       messages.length > tempMessageList.length ||
+      tempMessageList[tempMessageList.length - 1]["props"]["message"] !==
+        messages[0]["content"] ||
       // Math.abs(messages.length - tempMessageList.length) > 1 ||
       // status === "Improving Response ..." ||
       messages.length === 0

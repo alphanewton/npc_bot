@@ -1,7 +1,7 @@
 import Markdown from "react-markdown";
 import { GoPerson } from "react-icons/go";
 import remarkGfm from "remark-gfm";
-import { positiveFeedbackLoop } from "../services/api";
+// import { positiveFeedbackLoop } from "../services/api";
 // import { negativeFeedbackLoop } from "../services/api";
 import { useThread } from "../hooks/useThread";
 import { motion } from "framer-motion";
@@ -28,7 +28,7 @@ export default function ChatMessage({ message, role, setRun }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-row mx-2 my-5 group">
+      <div className="flex flex-row mx-2 my-3 group">
         {roleIcon}
         <div className="p-1 ml-2">
           <div className="flex-col relative">
@@ -39,7 +39,7 @@ export default function ChatMessage({ message, role, setRun }) {
             >
               {message}
             </Markdown>
-            {role === "assistant" && (
+            {/* {role === "assistant" && (
               <div className="hidden absolute justify-center items-center top-full my-3 transform -translate-y-1/2 group-hover:flex">
                 <button
                   className="cursor-pointer bg-transparent outline-none rounded-full border border-gray-300 w-6 h-6 text-xs inline-flex justify-center items-center focus:outline-none focus:bg-transparent hover:bg-blue-600 hover:transition-all hover:duration-200 hover:ease-in-out hover:shadow-lg hover:scale-110"
@@ -71,7 +71,7 @@ export default function ChatMessage({ message, role, setRun }) {
                   👎
                 </button>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
