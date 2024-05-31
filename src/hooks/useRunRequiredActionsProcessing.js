@@ -26,6 +26,7 @@ export const useRunRequiredActionsProcessing = (
               });
 
               console.log("Function call used!");
+              console.log(answer);
             } catch (error) {
               console.error("Error fetching QnA:", error);
             }
