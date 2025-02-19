@@ -12,7 +12,7 @@ export default function Header({ onNewChat, onClick }) {
         alt="InsSights Logo"
       />
       <p className="ml-[20px] text-xl md:text-2xl text-[#2759A6] font-semibold grow">
-        InsSights
+        NPC Bot
       </p>
       <div className="flex-row block md:hidden ml-auto justify-between space-x-2">
         <button

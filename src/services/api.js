@@ -1,5 +1,5 @@
-const domain_link = "https://assistants-api-six.vercel.app/";
-// const domain_link = "http://localhost:8000/";
+// const domain_link = "https://assistants-api-six.vercel.app/";
+const domain_link = "https://func-npc-bot-sc.azurewebsites.net/";
 // const domain_link = "http://assistants-api-1.azurewebsites.net/";
 
 export const createNewThread = async () => {
